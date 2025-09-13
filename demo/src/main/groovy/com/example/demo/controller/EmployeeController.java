@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/api/employees")
 public class EmployeeController {
     private EmployeeService employeeService;
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
         EmployeeDto savedEmployee = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
@@ -30,5 +30,10 @@ public class EmployeeController {
     public ResponseEntity<List<EmployeeDto>> getAllEmployees(){
         List<EmployeeDto> employeeDtos = employeeService.getAllEmployees();
         return ResponseEntity.ok(employeeDtos);
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Boolean> deleteEmployee(@PathVariable("id") Long employeeId){
+        Boolean deletedEmployee= employeeService.deleteEmployee(employeeId);
+        return ResponseEntity.ok(deletedEmployee);
     }
 }

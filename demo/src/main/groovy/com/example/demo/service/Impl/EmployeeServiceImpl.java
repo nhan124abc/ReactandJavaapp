@@ -42,5 +42,15 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employees.stream().map((employee -> EmployeeMapper.mapToEmployeeDto(employee))).collect(Collectors.toList());
     }
 
+    @Override
+    public Boolean deleteEmployee(Long employeeId) {
+        Employee employee = employeeRepository.findById(employeeId).orElseThrow(()-> new RuntimeException("Employee Not Found with id: " + employeeId));
+        if(employeeRepository.existsById(employeeId)) {
+            employeeRepository.deleteById(employeeId);
+            return true;
+        }
+        return false;
+    }
+
 
 }

@@ -11,8 +11,10 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         // Cho phép các yêu cầu từ React app chạy trên localhost:3000
         registry.addMapping("/**")  // Áp dụng cho tất cả các endpoint
-                .allowedOrigins("http://localhost:3000")  // React app URL
-                .allowedMethods("GET", "POST", "PUT", "DELETE")  // Các phương thức HTTP được phép
-                .allowCredentials(true);  // Cho phép gửi thông tin xác thực (cookies, headers, v.v.)
+                .allowedOrigins("http://localhost:3000")  // Explicit, không "*"
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true)
+                .maxAge(3600);  // Cho phép gửi thông tin xác thực (cookies, headers, v.v.)
     }
 }
