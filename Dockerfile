@@ -1,13 +1,13 @@
 # ===== Stage 1: Build React frontend =====
-FROM node:18 AS fontend
-WORKDIR /fontend
+FROM node:18 AS frontend
+WORKDIR /frontend
 
 # Copy package.json và cài dependency
-COPY fontend/package*.json ./
+COPY frontend/package*.json ./
 RUN npm install
 
 # Copy toàn bộ code React và build
-COPY fontend/ .
+COPY frontend/ .
 RUN npm run build
 
 # ===== Stage 2: Build Spring Boot backend =====
