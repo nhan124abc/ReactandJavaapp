@@ -1,4 +1,4 @@
-# Sử dụng OpenJDK 17 nhẹ (Alpine)
+# Sử dụng OpenJDK 17 nhẹ (Alpi
 FROM eclipse-temurin:17-jdk-alpine AS build
 WORKDIR /app
 COPY . .
