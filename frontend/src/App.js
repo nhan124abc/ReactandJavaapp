@@ -1,24 +1,23 @@
-import React from 'react';
-import EmployeeList from './component/EmployeeList';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CreateEmployee from "./component/CreateEmployee";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import EmployeeList from "./EmployeeList";
+import CreateEmployee from "./CreateEmployee";
+import NotFound from "./NotFound";
+
 function App() {
   return (
-      <Router>
-
-          <div className="App">
-              <nav className="navbar">
-                  <a href="/">Danh Sách Nhân Viên</a>
-                  <a href="/add">Thêm Nhân Viên</a>
-              </nav>
-              <Routes>
-                  <Route path="/" element={<EmployeeList/>}/>
-                  <Route path="/add" element={<CreateEmployee/>}/>
-              </Routes>
-          </div>
-
-      </Router>
-
+    <Router>
+         <div className="App">
+        <nav className="navbar">
+          <Link to="/">Danh Sách Nhân Viên</Link>
+          <Link to="/add">Thêm Nhân Viên</Link>
+        </nav>
+      <Routes>
+        <Route path="/" element={<EmployeeList />} />
+        <Route path="/add" element={<CreateEmployee />} />
+        <Route path="*" element={<NotFound />} /> 
+      </Routes>
+      </div>
+    </Router>
   );
 }
 
