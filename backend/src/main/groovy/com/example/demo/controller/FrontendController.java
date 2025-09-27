@@ -7,17 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class FrontendController {
 
-    @RequestMapping(value = {
-            "/", 
-            "/add",
-            "/{x:[\\w\\-]+}",
-            "/{x:^(?!api$).*$}/**/{y:[\\w\\-]+}"
-    })
+     // Bắt tất cả request không chứa dấu chấm (file tĩnh), forward về index.html
+    @RequestMapping(value = {"/{path:[^\\.]*}"})
     public String forward() {
-        // trả về index.html trong resources/static (React build)
         return "forward:/index.html";
     }
 }
