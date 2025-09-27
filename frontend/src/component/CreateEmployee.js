@@ -12,7 +12,7 @@ export default function CreateEmployee(){
 
         const employeedata={name,email}
         try{
-            const response=await fetch("http://localhost:8080/api/employees/add",
+            const response=await fetch("https://webtest-8akv.onrender.com/api/employees/add",
                 {
                     method:"POST",
                     headers:{"Content-Type":"application/Json"},
