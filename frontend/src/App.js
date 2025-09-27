@@ -6,11 +6,17 @@ import NotFound from "./component/NotFound";
 function App() {
   return (
     <Router>
+    <div className="App">
+              <nav className="navbar">
+                  <a href="/">Danh Sách Nhân Viên</a>
+                  <a href="/add">Thêm Nhân Viên</a>
+              </nav>
       <Routes>
         <Route path="/" element={<EmployeeList />} />
         <Route path="/add" element={<CreateEmployee />} />
         <Route path="*" element={<NotFound />} /> 
       </Routes>
+  </div>
     </Router>
   );
 }
