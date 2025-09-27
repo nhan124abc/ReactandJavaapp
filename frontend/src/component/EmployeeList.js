@@ -8,7 +8,7 @@ const EmployeeList = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/employees')
+        axios.get('https://webtest-8akv.onrender.com/api/employees')
             .then(response => {
                 setEmployees(response.data);  // Save the response data to state
                 setLoading(false);  // Set loading to false once data is fetched
