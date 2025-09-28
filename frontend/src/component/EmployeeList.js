@@ -21,29 +21,34 @@ const EmployeeList = () => {
 
     return (
         <>
-        <div className='container'>
-            <h1 className='text-center'>Employee List</h1>
-            <table className='table table-bordered table-striped'>
-                <thead>
-                <td>Id</td>
-                <td>Name</td>
-                <td>Email</td>
-                </thead>
-                <tbody>
-                    {employees.map( (empl)=>
-
+            <div className="container my-5">
+                <h1 className="text-center mb-4 text-primary">Employee List</h1>
+                <div className="table-responsive shadow rounded">
+                    <table className="table table-bordered table-hover table-striped align-middle">
+                        <thead className="table-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {employees.map((empl) => (
                             <tr key={empl.id}>
                                 <td>{empl.id}</td>
                                 <td>{empl.name}</td>
                                 <td>{empl.email}</td>
+                                <td>Delete</td>
+                                <td>Edit</td>
                             </tr>
-
-                    )}
-                </tbody>
-            </table>
-        </div>
-
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </>
+
     );
 
 };
