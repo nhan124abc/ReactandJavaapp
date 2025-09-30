@@ -19,14 +19,14 @@ const EmployeeList = () => {
             });
     }, []);  // The empty array ensures this runs only once, when the component mounts
     const handleDelete = async(id) => {
-        try {
-            await fetch(`https://webtest-8akv.onrender.com/api/employees/delete/${id}`, {
-                method: 'DELETE'
-            })}
-        catch (error) {
-            console.error('Error deleting employee:', error);
-        }
+    try {
+        await axios.delete(`https://webtest-8akv.onrender.com/api/employees/delete/${id}`);
+        // cập nhật danh sách ở đây
+    } catch (error) {
+        console.error('Error deleting employee:', error);
     }
+}
+
     return (
         <>
             <div className="container my-5">
