@@ -18,7 +18,15 @@ const EmployeeList = () => {
                 setLoading(false);
             });
     }, []);  // The empty array ensures this runs only once, when the component mounts
-
+    const handleDelete = async(id) => {
+        try {
+            await fetch(`https://webtest-8akv.onrender.com/api/employees/${id}`, {
+                method: 'DELETE'
+            })}
+        catch (error) {
+            console.error('Error deleting employee:', error);
+        }
+    }
     return (
         <>
             <div className="container my-5">
@@ -39,7 +47,7 @@ const EmployeeList = () => {
                                 <td>{empl.id}</td>
                                 <td>{empl.name}</td>
                                 <td>{empl.email}</td>
-                                <td>Delete</td>
+                                <td><button onClick={handleDelete(empl.id)}>Delete</button></td>
                                 <td>Edit</td>
                             </tr>
                         ))}
